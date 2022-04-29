@@ -1,4 +1,7 @@
 // Quick find implementation of the Disjoint Set
+// The difference from quick union is in values stored root node insteed of parent node
+// value [0, 1, 2, 3, 4] root
+// index [0, 1, 2, 3, 4] node
 
 class UnionFind {
     constructor(size) {
@@ -9,8 +12,8 @@ class UnionFind {
         return this.root[node]
     }
     /* When we connect one set to another we need to fine all node that 
-    connected to old root node ane reassign them to the new root node.
-    Time O(N) */
+    connected to old root node ane reassign them to the new root node.  */
+    //Time O(N)
     union(node1, node2) {
         if (this.find(node1) !== this.find(node2)) {
             for (let i = 0; i < this.root.length; i++) {
@@ -47,3 +50,4 @@ graph.union(3, 7);
 
 console.log(graph.isConnected(3, 7));
 console.log(graph.isConnected(2, 8));
+console.log(graph);
