@@ -24,11 +24,7 @@ class UnionFind {
 
     // Time O(1)
     isConnected(node1, node2) {
-        if (this.find(node1) === this.find(node2)) {
-            return true
-        } else {
-            return false;
-        }
+        return this.find(node1) === this.find(node2)
     }
 };
 
