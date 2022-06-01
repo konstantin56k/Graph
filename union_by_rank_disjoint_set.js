@@ -1,4 +1,4 @@
-
+// Rank is a node height
 
 class UnionFind {
     constructor(size) {
@@ -6,18 +6,21 @@ class UnionFind {
         this.rank = new Array(size).fill(1);
     }
     
-    // Time O(N)
+    /* For the find operation, in the worst-case scenario, when we repeatedly union
+    components of equal rank, the tree height will be at most \log(N) + 1log(N)+1,
+    so the find operation requires O(\log N)O(logN) time */
     find(node) {
         while (node !== this.root[node]) {
             node = this.root[node]
         }
         return node;
     }
+
     // Time O(N). In worst case time O(N) because here used find()
     union(node1, node2) {
         let rootNode1 = this.find(node1);
         let rootNode2 = this.find(node2);
-        
+
         if (rootNode1 !== rootNode2) {
             if (this.rank[rootNode1] > this.rank[rootNode2]) {
                 this.root[rootNode2] = rootNode1
@@ -30,7 +33,7 @@ class UnionFind {
         }
     }
 
-    // Time O(1)
+    // Time O(N). In worst case time O(N) because here used find()
     isConnected(node1, node2) {
         return this.find(node1) === this.find(node2)
     }
