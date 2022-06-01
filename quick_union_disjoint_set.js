@@ -46,7 +46,4 @@ graph.union(8, 9);
 
 console.log(graph)
 
-
 console.log(graph.isConnected(1, 2));
-
-// console.log(graph.root.map(num => graph.find(num)));
