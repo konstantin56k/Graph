@@ -3,7 +3,7 @@ find() changes what stored in a root[] from parent to root node*/
 
 class UnionFind {
     constructor(size) {
-        this.root = new Array(size).fill().map((char, idx) => char = idx)
+        this.root = [... Array(size).keys()]
     }
     
     /* For the find, union, and connected operations (the latter two operations both
@@ -14,13 +14,15 @@ class UnionFind {
 
     find(node) {
         if (node === this.root[node]) return node;
-        this.root[node] = this.find(this.root[node]);
-        return this.root[node]
+        return this.root[node] = this.find(this.root[node]);
     }
 
     union(node1, node2) {
-        if (this.find(node1) !== this.find(node2)) {
-            this.root[this.find(node2)] = this.find(node1)
+        let rootNode1 = this.find(node1);
+        let rootNode2 = this.find(node2)
+
+        if (rootNode1 !== rootNode2) {
+            this.root[rootNode2] = rootNode1
         }
     }
 

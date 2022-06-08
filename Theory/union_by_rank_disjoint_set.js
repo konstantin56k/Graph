@@ -2,8 +2,8 @@
 
 class UnionFind {
     constructor(size) {
-        this.root = new Array(size).fill().map((char, idx) => char = idx);
-        this.rank = new Array(size).fill(1);
+        this.root = [... Array(size).keys()]
+        this.rank = Array(size).fill(1);
     }
     
     /* For the find operation, in the worst-case scenario, when we repeatedly union

@@ -5,7 +5,7 @@
 
 class UnionFind {
     constructor(size) {
-        this.root = new Array(size).fill().map((char, idx) => char = idx)
+        this.root = [... Array(size).keys()]
     }
     
     // Time O(N)
